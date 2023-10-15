@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CoreOS - 1.0</title>
+  <style>
+    body {
+      background-color: black;
+      color: limegreen;
+      font-family: monospace;
+    }
+    
+    #console {
+      height: 200px;
+      padding: 10px;
+      overflow-y: auto;
+      background-color: black;
+      color: limegreen;
+    }
+    
+    #input-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    #input-container input {
+      flex-grow: 1;
+      margin-right: 10px;
+      padding: 5px;
+      font-family: monospace;
+      background-color: black;
+      color: limegreen;
+      border: none;
+      outline: none;
+    }
+    
+    #input-container button {
+      font-family: monospace;
+      padding: 5px;
+      background-color: limegreen;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+    
+    a {
+        color: lightblue;
+        text-decoration: none;
+    }
+    
+    .kali {
+        border-radius: 16px;
+        background-color: rgba(0, 150, 255, 0.5);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 8px;
+    }
+  </style>
+  <meta name="author" content="ruihq">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div id="console"></div>
+  <div id="input-container">
+    <span>*</span>
+    <input type="text" id="command-input">
+    <button id="run-command">Run</button>
+  </div>
+  
+  &nbsp;
+  
+  <div class="kali">
+      <footer>Copyright (c) 2023 Rui Reogo</footer>
+  <footer>CoreOS v1.0</footer>
+  <div class="links">
+    <a href="LICENSE.md">[license] mit,</a>
+    <a href="https://github.com/ruihq">[github] ruihq.</a>
+  </div>
+  <div id="links2">
+      <a href="docs/index.html">[coreos-doc] coreos documentary.</a>
+  </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div id="matrix-effect">
+    
+</div>
+<button class="btn" onclick="back()">Go Back</button>
+
+<style>
+html {
+    background-color: black;
+    color: white;
+}
+
+#matrix-effect {
+  background-color: black;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 16px;
+  color: green;
+}
+
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #121212;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+</style>
+
+<script>
+const matrixEffect = document.getElementById('matrix-effect');
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+function getRandomCharacter() {
+  return characters[Math.floor(Math.random() * characters.length)];
+}
+
+function createMatrixEffect() {
+  let matrixText = '';
+  const columns = Math.floor(matrixEffect.clientWidth / 20);
+  const rows = Math.floor(matrixEffect.clientHeight / 20);
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      matrixText += getRandomCharacter();
+    }
+    matrixText += '<br>';
+  }
+
+  matrixEffect.innerHTML = matrixText;
+}
+
+setInterval(createMatrixEffect, 100);
+
+function back() {
+    window.location.href = '../index.html';
+}
+</script>
+</html>

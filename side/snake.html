@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Moving Dot Sim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html {
+        background-color: black;
+        color: limegreen;
+        font-family: Monospace;
+    }
+    
+    #game-board {
+      border-radius: 10px;
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: 2px solid white;
+    }
+    
+    .dot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: black;
+    }
+    
+    #snake-head {
+      z-index: 1; /* Ensure the head is above the body */
+      background-color: red;
+      border-radius: 16px;
+    }
+    
+    .button {
+      margin: 5px;
+      padding: 10px;
+    }
+    
+    .btn {
+        border-radius: 16px;
+        background-color: black;
+        color: limegreen;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        font-size: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Simulator</h1>
+  
+  <div id="game-board">
+    <div id="snake-head" class="dot"></div>
+  </div>
+  
+  <div>
+      <button class="btn" onclick="moveSnake(-20, 0);">Left</button>
+      <button class="btn" onclick="moveSnake(0, 20);">Down</button>
+      <button class="btn" onclick="moveSnake(0, -20);">Up</button>
+      <button class="btn" onclick="moveSnake(20, 0);">Right</button>
+  </div>
+  
+  <script>
+    var gameBoard = document.getElementById("game-board");
+    var snakeHead = document.getElementById("snake-head");
+    var difficulty = "normal"; // Default difficulty
+    
+    function changeDifficulty(selectedDifficulty) {
+      difficulty = selectedDifficulty;
+    }
+    
+    function handleKeyPress(event) {
+      var key = event.keyCode;
+      
+      if (key === 37) { // Left arrow
+        moveSnake(-20, 0);
+      } else if (key === 38) { // Up arrow
+        moveSnake(0, -20);
+      } else if (key === 39) { // Right arrow
+        moveSnake(20, 0);
+      } else if (key === 40) { // Down arrow
+        moveSnake(0, 20);
+      }
+    }
+    
+    function moveSnake(dx, dy) {
+      var snakeStyle = window.getComputedStyle(snakeHead);
+      var snakeLeft = parseInt(snakeStyle.left);
+      var snakeTop = parseInt(snakeStyle.top);
+      
+      snakeHead.style.left = (snakeLeft + dx) + "px";
+      snakeHead.style.top = (snakeTop + dy) + "px";
+    }
+    
+    document.addEventListener("keydown", handleKeyPress);
+  </script>
+</body>
+
+</html>

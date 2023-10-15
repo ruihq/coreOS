@@ -1,0 +1,12 @@
+html {
+    font-family: monospace, sans-serif;
+    color: limegreen;
+    background-color: black;
+}
+
+.glass {
+    border-radius: 16px;
+    background-color: rgba(0, 150, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px;
+}
